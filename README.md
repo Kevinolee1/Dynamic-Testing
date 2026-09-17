@@ -18,7 +18,7 @@ We want to make sure the target source code itself has not been modified before 
 
 If nothing appears, that's a clean working tree.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/97bf0a3d69e8a973cc74209b3e5e690070ef3215/Screenshot%202026-09-17%20092356.png)
 
 That means the Calibre-Web NextGen target repository has no modified or untracked files.
 
