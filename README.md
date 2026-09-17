@@ -56,7 +56,7 @@ Run: Select-String -Path .\targets\Calibre-Web-NextGen\cps\constants.py -Pattern
 
 We’re expecting the version associated with our baseline: 4.1.43
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/a4d3fa4f575f4a5548816fe36d0e89af1cba468e/Screenshot%202026-09-17%20093417.png)
 
 No output means STABLE_VERSION isn't defined in that file under that exact name. Nothing is wrong—we just searched for the wrong constant.
 
