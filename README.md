@@ -129,7 +129,7 @@ Run: python .\targets\Calibre-Web-NextGen\cps.py --help
 
 Then we'll use the correct startup command for your local testing environment.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/4fb21783450b1402ff962932d9327a1433a780ad/Screenshot%202026-09-17%20094933.png)
 
 this tells us exactly what's wrong. The application reached its Python code, but your research .venv doesn't currently have Flask installed:
 
