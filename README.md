@@ -115,7 +115,7 @@ Then run: .\.venv\Scripts\Activate.ps1
 
 We want the prompt to change to: (.venv) PS C:\Users\eelve\Vulnerability-Research-Lab>
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/028f974aee69bccf74d43e0ffd2a2d0bed1e65b6/Screenshot%202026-09-17%20094721.png)
 
 The screenshot confirms the virtual environment is active:
 
