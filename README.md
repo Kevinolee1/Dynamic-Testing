@@ -145,11 +145,13 @@ Run: Select-String -Path .\targets\Calibre-Web-NextGen\pyproject.toml -Pattern "
 
 We'll install dependencies using the method this repository expects, rather than manually installing Flask and potentially missing dozens of other required packages.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/b8873d733a065ab660fad60294b6bb545e6721da/Screenshot%202026-09-17%20095155.png)
 
 Perfect. This confirms the project declares its runtime dependencies directly in pyproject.toml, including Flask and the authentication-related packages we’ll eventually need.
 
-For Lab 5 — Step 1: Prepare the Dynamic Testing Environment, the next move is to install the target itself into your already-active .venv. Since we want to preserve the source checkout and install exactly from the local authorized target, run only: python -m pip install -e .\targets\Calibre-Web-NextGen
+For Lab 5 — Step 1: Prepare the Dynamic Testing Environment, the next move is to install the target itself into your already-active .venv. Since we want to preserve the source checkout and install exactly from the local authorized target. 
+
+run only: python -m pip install -e .\targets\Calibre-Web-NextGen
 
 The -e performs an editable local install, so Python uses your cloned Calibre-Web NextGen source while installing the dependencies declared in pyproject.toml.
 
