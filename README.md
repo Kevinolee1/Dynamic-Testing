@@ -46,6 +46,8 @@ Branch: main
 Commit: previously verified 
 Working tree: clean 
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/27a78aebd5813135ec1488ff1384d945ff61fbf0/Screenshot%202026-09-17%20092826.png)
+
 The Lab 5 baseline is matching Lab 4.
 
 Verify the application version
