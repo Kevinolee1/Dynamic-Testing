@@ -103,7 +103,7 @@ Activate your research environment
 
 Before we attempt to launch the application, activate your existing virtual environment: .\.venv\Scripts\Activate.ps1
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/b917224140e49cc5985e38284c0e7efc2fa45c6f/Screenshot%202026-09-17%20094417.png)
 
 That's the same PowerShell execution-policy restriction we encountered earlier. Your .venv itself isn't broken.
 
