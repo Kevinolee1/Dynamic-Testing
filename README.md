@@ -28,7 +28,7 @@ Run: git -C .\targets\Calibre-Web-NextGen rev-parse HEAD
 
 We expect: 7e9221f455329bb3e6611b4652ac23b7f8629bb0
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/35a979ca0bc7bb66ea31c9a98eb464a94947fc68/Screenshot%202026-09-17%20092345.png)
 
 That matches our Lab 4 baseline exactly:
 
