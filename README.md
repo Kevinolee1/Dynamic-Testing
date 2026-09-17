@@ -90,7 +90,7 @@ Run: Get-Content .\targets\Calibre-Web-NextGen\VERSION
 
 After that, we'll move to starting the local application for dynamic testing.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/48627edfb05f26d35360a211477d4d0f86132331/Screenshot%202026-09-17%20094042.png)
 
 That confirms the complete Lab 5 testing baseline:
 
