@@ -78,7 +78,7 @@ Check how the application is launched
 
 Run: Get-ChildItem .\targets\Calibre-Web-NextGen | Select-Object Name
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/20b43b8dcd4051b7a584459a51609ba2d8a28745/Screenshot%202026-09-17%20093828.png)
 
 We found two important files:
 
