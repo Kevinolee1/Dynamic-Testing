@@ -232,7 +232,7 @@ Run only: Get-PSDrive C | Select-Object Used,Free
 
 Once I see exactly how much free space you have, we'll choose the lowest-storage path for getting the local target running
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/51a05c4c82922567a1d9482f59c31343800ccda4/Screenshot%202026-09-17%20104140.png)
 
 I currently have 50,713,722,888 bytes free ≈ 47.2 GB on C:.
 
