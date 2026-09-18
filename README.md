@@ -157,7 +157,7 @@ The -e performs an editable local install, so Python uses your cloned Calibre-We
 
 This may install quite a few packages and could take several minutes. Do not start the application yet.
 
-
+![Inage alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/18665aca2ed3554c78e7b1ba219d8d4e0340f4c1/Screenshot%202026-09-17%20100759.png)
 
 The install did not complete, and the important part is:
 
