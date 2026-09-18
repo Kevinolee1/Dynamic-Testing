@@ -311,7 +311,7 @@ The command returned no matches, which means faust-cchardet did not fail with th
 
 Run: Get-Content .\faust-cchardet-build.txt -Tail 40
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/34ed439b886db0c4d363171567d6f1c064537472/Screenshot%202026-09-17%20110110.png)
 
 faust-cchardet is resolved. This output confirms:
 
