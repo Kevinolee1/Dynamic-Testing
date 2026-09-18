@@ -273,7 +273,7 @@ Run this one command: Get-ChildItem .\targets\Calibre-Web-NextGen\cps -Recurse -
 This should tell us whether LDAP support is conditionally loaded. If it is, we may be able to run the application without 
 python-ldap and postpone Candidate #4 — LDAP fallback until later.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/b8dc5a01f3a5ac979fdcacdb80a305d67e7da484/Screenshot%202026-09-17%20104932.png)
 
 Excellent. This gives us the answer we were looking for.
 
