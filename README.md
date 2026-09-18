@@ -418,3 +418,35 @@ After installation, Ubuntu may open and ask you to create a Linux username and p
 
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/0c9bf4917da5bb340d50c72bba1d921a56bec6a6/Screenshot%202026-09-17%20112003.png)
 
+Ubuntu installed successfully. The important lines are:
+
+Ubuntu has been installed.
+
+Launching Ubuntu...
+
+I'm currently logged in as root, which is okay for this temporary research environment. Notice I'm currently under /mnt/c/...; the project's instructions recommend keeping its Docker runtime data inside the WSL filesystem, so we'll follow that when we get there.
+
+Verify WSL from Windows
+
+First exit Ubuntu: exit
+
+Once you're back at your PowerShell prompt, run: wsl --list --verbose
+
+
+Verification passed:
+
+NAME      STATE     VERSION
+* Ubuntu  Stopped   2
+
+So Ubuntu is installed correctly and configured as WSL2. Stopped is normal because you exited the Ubuntu session.
+
+ **Step 1P: Docker Desktop**
+
+We can now move to the project's documented Windows runtime approach. Install Docker Desktop for Windows from the official Docker site:
+
+Docker Desktop for Windows
+
+During installation, keep the WSL 2 backend option enabled. You do not need Hyper-V if the installer offers WSL2 as the backend.
+
+After installation, launch Docker Desktop and wait until it reports that the Docker engine is running.
+
