@@ -384,6 +384,8 @@ Run only: wsl --list --verbose
 
 If Ubuntu or another Linux distribution is already installed and shows VERSION 2, that removes another setup requirement. Don't run wsl --update or install Docker yet.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/0aeaa48334f76f493a7167d4ff7f76613086671d/Screenshot%202026-09-17%20111432.png)
+
 That confirms the situation:
 
 WSL2: installed 
