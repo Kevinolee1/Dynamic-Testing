@@ -177,6 +177,9 @@ cl.exe
 lber.h
 ldap.h
 
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/d9c9cc19bf1268c7b2cddd4b7f8624dc17f4cb4d/Screenshot%202026-09-17%20101146.png)
+
 That confirms python-ldap is the blocker, but this screenshot still only shows pip’s final summary. The actual compiler error occurred earlier in the output.
 
 Before installing Visual C++ tools or changing Python versions, I want the exact cause.
