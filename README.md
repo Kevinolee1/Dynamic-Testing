@@ -210,7 +210,7 @@ From your current project directory, run: Get-ChildItem .\targets\Calibre-Web-Ne
 
 We'll use the project's supported installation/startup method rather than forcing a 7 GB compiler installation onto your machine.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/8a445e77ebe82afdaa1d93b9711ce053f4f12922/Screenshot%202026-09-17%20103709.png)
 
 That confirms the repository provides both Docker and regular installation documentation. Since disk space is already tight, I don't want to have you install Docker Desktop—it could consume even more space.
 
