@@ -364,7 +364,7 @@ We'll follow the project's own setup guidance if it provides a lower-storage rou
 
 If WSL2 is already available, we'll determine how much additional installation is actually necessary before downloading Docker Desktop.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/1965acfd6e3ad7ebb00e93446b759faa9b340745/Screenshot%202026-09-17%20110926.png)
 
 This settles it. The project's own setup guide says that on Windows, Docker Desktop + WSL2 is the supported setup, and that if Docker isn't installed, it is a prerequisite. So continuing to fight the bare-metal Python dependencies would move us away from the target's intended runtime.
 
