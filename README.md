@@ -258,6 +258,8 @@ Run only: Select-String -Path .\targets\Calibre-Web-NextGen\cps\*.py -Pattern "i
 We're specifically checking whether LDAP is conditionally imported. If it is, we'll try to bypass that optional dependency 
 cleanly rather than installing several gigabytes of development tools.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/90f13224abf8ee5546af2f89d11791704dced89d/Screenshot%202026-09-17%20104752.png)
+
 This result is useful, but it doesn't show an LDAP import. It only found the word LDAP in web.py, where the application calls its LDAP service:
 
 ldap_user_details = services.ldap.get_object_details(username)
