@@ -326,7 +326,7 @@ Now run only: python -c "import flask, sqlalchemy; print('Flask:', flask.__versi
 If that passes, we'll continue toward getting Calibre-Web NextGen running locally without installing the 7 GB Visual C++ 
 package.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/ff5fe89255c860e0b2e16236c3a2825ebf69ce46/Screenshot%202026-09-17%20110322.png)
 
 This tells us something important: the failed editable install rolled back before installing Flask, so we don't yet have a runnable core environment.
 
