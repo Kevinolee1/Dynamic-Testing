@@ -194,8 +194,7 @@ Then run: Select-String -Path .\python-ldap-build.txt -Pattern "fatal error|erro
 
 Then we'll know whether we're dealing with missing C++ build tools, missing LDAP development headers/libraries, or another Python 3.13 compatibility issue. Don't install anything else yet.
 
-
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/a1cef7e4bb4eb2c1ac5babd273801aafe89b70a4/Screenshot%202026-09-17%20101407.png)
 
 now we have the exact cause.
 
