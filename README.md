@@ -404,7 +404,7 @@ Run only: wsl --list --online
 
 We'll choose the appropriate Ubuntu version from Microsoft's available list before installing anything.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/81941459986962842b87fee27b01d0ff0612825b/Screenshot%202026-09-17%20111635.png)
 
 Ubuntu is available, so we can continue with the project's supported Windows path.
 
