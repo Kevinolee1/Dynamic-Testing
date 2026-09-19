@@ -832,15 +832,13 @@ Lab5UserA!2026
 
 Since this is an isolated local research account, that's fine for our controlled lab.
 
-Then scroll farther down until you reach the permissions/roles section
-
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/37e6f77e865028b1c283cecba7adabe43312e260/Screenshot%202026-09-19%20120619.png)
+
+Then scroll farther down until you reach the permissions/roles section
 
 This is exactly what we need. All permissions are currently unchecked.
 
 For Candidate #1 — Read-Status Object Authorization, keep this account as a basic non-admin user. We don't need Admin, Upload, Edit, Download, or Public Shelf permissions for this test.
-
-Next step
 
 Check only:
 
@@ -851,3 +849,5 @@ Leave everything else unchecked, especially Admin User.
 Then click SAVE.
 
 That gives us our controlled low-privilege account for the authorization test.
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/98172fbee65c32c1587e133059c0194dcf3b7b88/Screenshot%202026-09-19%20120744.png)
