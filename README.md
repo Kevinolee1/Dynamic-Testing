@@ -481,6 +481,9 @@ D:\Vulnerability-Research-Docker
 
 Confirm that Disk image location now points to your D: drive, then click Apply & restart.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/418f6be8a966d2aa389995acb5f2a6c21bb8f7cf/Screenshot%202026-09-18%20222750.png)
+
+
 Docker will restart and move its disk image. Keep the Toshiba drive connected during this process.
 
 Once Docker comes back and shows Engine running, send me the result. I'll verify the storage location before pulling Calibre-Web NextGen.
