@@ -820,7 +820,6 @@ ADD NEW USER
 
 We'll configure this account specifically for Candidate #1 so it has normal user access but no administrative privileges.
 
-
 Change Username to: lab5-user-a 
 
 Then scroll down just enough so we can see the email/password fields and permissions/options below it.
@@ -835,7 +834,7 @@ Since this is an isolated local research account, that's fine for our controlled
 
 Then scroll farther down until you reach the permissions/roles section
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/37e6f77e865028b1c283cecba7adabe43312e260/Screenshot%202026-09-19%20120619.png)
 
 This is exactly what we need. All permissions are currently unchecked.
 
