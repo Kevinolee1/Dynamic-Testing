@@ -444,9 +444,69 @@ So Ubuntu is installed correctly and configured as WSL2. Stopped is normal becau
 
 We can now move to the project's documented Windows runtime approach. Install Docker Desktop for Windows from the official Docker site:
 
-Docker Desktop for Windows
-
 During installation, keep the WSL 2 backend option enabled. You do not need Hyper-V if the installer offers WSL2 as the backend.
 
 After installation, launch Docker Desktop and wait until it reports that the Docker engine is running.
 
+
+
+**Configure Docker storage on D:**
+
+Click the ⚙️ Settings icon near the top-right.
+
+Then look for Resources → Advanced.
+
+We want the setting called something like Disk image location.
+
+Select so Docker's large images/containers live on:
+
+D:\Vulnerability-Research-Docker
+
+
+
+Confirm that Disk image location now points to your D: drive, then click Apply & restart.
+
+Docker will restart and move its disk image. Keep the Toshiba drive connected during this process.
+
+Once Docker comes back and shows Engine running, send me the result. I'll verify the storage location before pulling Calibre-Web NextGen.
+
+
+
+This confirms Docker Engine is running after the storage move. It also shows a disk limit of about 1006.85 GB, so Docker now has substantial storage available instead of being constrained by C:
+
+**Prepare Dynamic Testing Environment.**
+
+Before pulling Calibre-Web NextGen, let's verify from PowerShell that Docker itself is healthy.
+
+Run: docker info --format "Docker Root Dir: {{.DockerRootDir}} | Server Version: {{.ServerVersion}}"
+
+
+
+That confirms the Docker backend is responding correctly:
+
+Docker Root: /var/lib/docker
+
+Server Version: 29.8.0
+
+Because Docker Desktop's WSL disk image was moved to D:\Vulnerability-Research-Docker\DockerDesktopWSL, /var/lib/docker is the normal Linux-side path inside that disk. We're ready to proceed.
+
+**Calibre-Web NextGen setup**
+
+Let's first check whether the target repository already contains a Docker Compose file. From:
+
+C:\Users\eelve\Vulnerability-Research-Lab
+
+run: Get-ChildItem .\targets\Calibre-Web-NextGen -Filter "*compose*" | Select-Object Name
+
+We'll use the target project's own supported configuration rather than inventing one.
+
+
+
+confirms the repository includes both:
+
+docker-compose.yml — normal deployment
+docker-compose.yml.dev — development configuration
+
+For our controlled Lab 5 dynamic testing, let's inspect the normal Compose configuration before running it. This lets us verify the image, ports, volumes, and environment settings first.
+
+Run: Get-Content .\targets\Calibre-Web-NextGen\docker-compose.yml
