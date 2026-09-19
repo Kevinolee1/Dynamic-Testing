@@ -622,7 +622,7 @@ Run: docker compose -f .\docker-compose-lab5.yml up -d
 
 This will pull the Calibre-Web NextGen image and start the local container. The first run may take several minutes. We won't open localhost:8083 until we confirm the container is actually healthy.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/aef2c58e63a6916759b028757fd1b2b94dca042c/Screenshot%202026-09-19%20001437.png)
 
 This is a successful first startup.
 
