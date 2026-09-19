@@ -477,7 +477,7 @@ Select so Docker's large images/containers live on:
 
 D:\Vulnerability-Research-Docker
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f05ad7084496e96abaf5f02413db0884b3394a6a/Screenshot%202026-09-18%20222320.png)
 
 Confirm that Disk image location now points to your D: drive, then click Apply & restart.
 
