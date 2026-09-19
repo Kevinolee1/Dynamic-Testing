@@ -690,7 +690,7 @@ http://localhost:8083
 
 This stays entirely on your local machine.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/b75138a3d7fcc8f2c3df7ae9ce88155bb2bc1b2a/Screenshot_19-9-2026_105658_chatgpt.com.jpeg)
 
 This is the baseline we wanted. The application is reachable locally at localhost:8083, and it redirects unauthenticated access to /login?next=%2F. The login page renders normally.
 
