@@ -813,3 +813,42 @@ Open User Management
 In Calibre-Web NextGen, click the wrench/tools icon 🔧 near the top-right.
 
 Look for Admin, User Management, Edit Users, or a similar user-management option.
+
+
+
+ADD NEW USER
+
+We'll configure this account specifically for Candidate #1 so it has normal user access but no administrative privileges.
+
+
+Change Username to: lab5-user-a 
+
+Then scroll down just enough so we can see the email/password fields and permissions/options below it.
+
+
+
+Set a lab-only password that satisfies those requirements. For example:
+
+Lab5UserA!2026
+
+Since this is an isolated local research account, that's fine for our controlled lab.
+
+Then scroll farther down until you reach the permissions/roles section
+
+
+
+This is exactly what we need. All permissions are currently unchecked.
+
+For Candidate #1 — Read-Status Object Authorization, keep this account as a basic non-admin user. We don't need Admin, Upload, Edit, Download, or Public Shelf permissions for this test.
+
+Next step
+
+Check only:
+
+☑ Allow eBook Viewer
+
+Leave everything else unchecked, especially Admin User.
+
+Then click SAVE.
+
+That gives us our controlled low-privilege account for the authorization test.
