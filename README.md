@@ -460,7 +460,7 @@ During installation, keep the WSL 2 backend option enabled. You do not need Hype
 
 After installation, launch Docker Desktop and wait until it reports that the Docker engine is running.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/6c6a94fb37d1678cae6697e1021809f3717264f5/Screenshot%202026-09-18%20190940.png)
 
 **Configure Docker storage on D:**
 
