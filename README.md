@@ -528,3 +528,222 @@ docker-compose.yml.dev — development configuration
 For our controlled Lab 5 dynamic testing, let's inspect the normal Compose configuration before running it. This lets us verify the image, ports, volumes, and environment settings first.
 
 Run: Get-Content .\targets\Calibre-Web-NextGen\docker-compose.yml
+
+We'll review the configuration first and make sure its persistent test data won't accidentally go somewhere we don't want.
+
+
+
+This tells us exactly what we need before launching it.
+
+The Compose file uses the official NextGen image, exposes 8083, and requires four host-side volume paths. We should not run this file unchanged, because /path/to/... are placeholders. For Lab 5, we'll create isolated test directories on your external D: drive so we don't mix research data with your real files.
+
+**Create isolated test-data folders**
+
+Run this one command: 
+
+You should end up with: New-Item -ItemType Directory -Force -Path "D:\Vulnerability-Research-Docker\calibre-lab5\config","D:\Vulnerability-Research-Docker\calibre-lab5\ingest","D:\Vulnerability-Research-Docker\calibre-lab5\library","D:\Vulnerability-Research-Docker\calibre-lab5\plugins"
+
+D:\Vulnerability-Research-Docker\calibre-lab5\
+
+├── config
+
+├── ingest
+
+├── library
+
+└── plugins
+
+These will be Lab 5-only test data, which is exactly what we want for controlled dynamic testing and later restoration. After, Then we'll create a separate Lab 5 Compose file rather than modifying the target repository's original docker-compose.yml.
+
+
+
+This confirms all four isolated Lab 5 directories were created successfully on the D: external drive:
+
+config, ingest, library, and plugins.
+
+**create our Lab 5 Compose file**
+
+We won't modify the repository's original Compose file. From your current PowerShell location, run: Copy-Item .\targets\Calibre-Web-NextGen\docker-compose.yml .\docker-compose-lab5.yml
+
+Then verify it exists: Get-Item .\docker-compose-lab5.yml | Select-Object Name,Length
+
+After that, we'll edit only our copy to point those four volumes to D:\Vulnerability-Research-Docker\calibre-lab5\..., while preserving the target's original configuration for comparison and evidence.
+
+
+
+This confirms our separate docker-compose-lab5.yml was created successfully at 3,507 bytes. The original target Compose file remains untouched.
+
+Now we'll modify only the four placeholder volume paths in our Lab 5 copy.
+
+**Replace the volume paths**
+
+Run this PowerShell block: $compose = Get-Content .\docker-compose-lab5.yml -Raw
+$compose = $compose.Replace('/path/to/config/folder','D:/Vulnerability-Research-Docker/calibre-lab5/config')
+$compose = $compose.Replace('/path/to/the/folder/you/want/to/use/for/book/ingest','D:/Vulnerability-Research-Docker/calibre-lab5/ingest')
+$compose = $compose.Replace('/path/to/your/calibre/library','D:/Vulnerability-Research-Docker/calibre-lab5/library')
+$compose = $compose.Replace('/path/to/your/calibre/plugins/folder','D:/Vulnerability-Research-Docker/calibre-lab5/plugins')
+Set-Content .\docker-compose-lab5.yml $compose
+
+No output is normal.
+
+Then verify only the volume section: Select-String -Path .\docker-compose-lab5.yml -Pattern "D:/Vulnerability"
+
+We still won't start the container yet. I want to validate the resulting Compose configuration first so we don't discover a path/YAML problem after downloading the image.
+
+
+
+The replacement worked. Your screenshot confirms all four Lab 5 bind mounts now point to the external D: drive:
+
+D:/Vulnerability-Research-Docker/calibre-lab5/config:/config
+
+D:/Vulnerability-Research-Docker/calibre-lab5/ingest:/cwa-book-ingest
+
+D:/Vulnerability-Research-Docker/calibre-lab5/library:/calibre-library
+
+D:/Vulnerability-Research-Docker/calibre-lab5/plugins:/config/.config/calibre/plugins
+
+One extra match is just a comment mentioning the config path, so that's fine.
+
+Next step — validate the Compose file
+
+Before downloading or starting anything, run: docker compose -f .\docker-compose-lab5.yml config --quiet
+
+If the configuration is valid, it will normally return to the prompt with no output. Once this passes, we'll be ready for the first controlled startup of Calibre-Web NextGen for Lab 5.
+
+
+
+No output and a return to the PowerShell prompt means the Compose configuration passed validation. ✅
+
+We're ready for the first controlled startup of Calibre-Web NextGen.
+
+**First container startup**
+
+Run: docker compose -f .\docker-compose-lab5.yml up -d
+
+This will pull the Calibre-Web NextGen image and start the local container. The first run may take several minutes. We won't open localhost:8083 until we confirm the container is actually healthy.
+
+
+
+This is a successful first startup.
+
+27/27 image layers pulled
+ghcr.io/new-usemame/calibre-web-nextgen:latest — Pulled
+Docker network — Created
+calibre-web-nextgen — Started
+
+So the container is running, but we still need to verify its actual state before opening the application.
+
+**Verify container status**
+
+Run: docker compose -f .\docker-compose-lab5.yml ps
+
+We're looking for calibre-web-nextgen showing Up and port 8083 mapped correctly. After that, we'll check its startup logs before opening the web interface.
+
+
+
+This confirms the container is running correctly:
+
+Status: Up 4 minutes (healthy)
+Port: 8083 → 8083/tcp
+Container: calibre-web-nextgen
+
+That (healthy) status is exactly what we wanted. 
+
+Before opening the application, let's do one final startup-log check for errors.
+
+Run: docker compose -f .\docker-compose-lab5.yml logs --tail=30
+
+We'll open Calibre-Web NextGen at localhost:8083 and establish our Lab 5 baseline.
+
+
+
+The startup logs look clean. The important checks all passed:
+
+Container is healthy.
+Gevent server started on port 8083.
+
+The localhost connection test succeeded.
+
+/cwa-book-ingest and /calibre-library were recognized.
+
+Docker Desktop correctly switched file watching to polling.
+
+Database schema initialized successfully.
+
+Checksum/backfill completed successfully.
+
+No startup exception or fatal error appears in the log you provided.
+
+One thing to note for later: the log says HARDCOVER_TOKEN is configured because the stock Compose file contains the placeholder your_hardcover_api_key_here. That's not blocking us, but we'll clean that up later if necessary.
+
+docker compose -f .\docker-compose-lab5.yml ps
+
+
+**Open the application**
+
+Now open your browser and go to:
+
+http://localhost:8083
+
+This stays entirely on your local machine.
+
+
+
+This is the baseline we wanted. The application is reachable locally at localhost:8083, and it redirects unauthenticated access to /login?next=%2F. The login page renders normally.
+
+**Prepare Dynamic Testing Environment**
+
+The Docker portion is now working.
+
+Before trying credentials, we need to determine the application's intended initial/default administrator login procedure rather than guessing.
+
+From PowerShell in C:\Users\eelve\Vulnerability-Research-Lab, run: docker compose -f .\docker-compose-lab5.yml logs | Select-String -Pattern "admin|password|username|login|credential" -CaseSensitive:$false
+
+We'll use that to determine whether the fresh installation generated credentials or expects a documented default. Don't enter random credentials yet.
+
+
+
+That confirms the logs do not expose or generate initial credentials. The two matches are only authentication-related configuration messages:
+
+SESSION_COOKIE_SECURE set to False (Standard/LDAP login)
+Magic Link QRCode is enabled
+
+So we shouldn't guess credentials.
+
+find the documented/default login in the source
+
+Run: Get-ChildItem .\targets\Calibre-Web-NextGen -Recurse -File -Include *.md,*.py,*.yml,*.yaml | Select-String -Pattern "admin123|default password|default username|initial password|initial login" -CaseSensitive:$false | Select-Object -First 20 Path,LineNumber,Line
+
+This keeps us within the authorized local source repository and will tell us how a fresh installation is intended to be accessed.
+
+
+
+We found the intended fresh-install credentials directly in the project's source:
+
+Username: admin
+
+Password: admin123
+
+The strongest evidence is cps\constants.py, which defines DEFAULT_PASSWORD = "admin123", plus cps\ub.py, which documents creation of the default admin account. The repository documentation also explicitly states admin/admin123.
+
+**Initial login**
+
+On the login page, enter:
+
+Username: admin
+
+Password: admin123
+
+This is the application's documented default account in our isolated local instance—not a credential-guessing test. Don't change the password, create users, or modify settings yet. We want to capture the clean authenticated baseline first.
+
+
+
+This confirms the documented default administrator login succeeded and the authenticated application is functioning normally.
+
+Your screenshot also establishes a useful Lab 5 baseline: authenticated admin session, Books (0), empty library, and the classic Calibre-Web NextGen interface. Save this screenshot as evidence for Lab 5 / Step 1 — Initial Authenticated Baseline.
+
+We now need controlled test data before Candidate #1 can be tested. The read-status authorization candidate requires at least one book object, and later we'll need separate users with different visibility/access conditions.
+
+Next small step — verify the library is empty on disk
+
+Don't change anything in the web interface yet. In PowerShell run: Get-ChildItem "D:\Vulnerability-Research-Docker\calibre-lab5\library" -Force
