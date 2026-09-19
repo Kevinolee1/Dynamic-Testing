@@ -627,8 +627,11 @@ This will pull the Calibre-Web NextGen image and start the local container. The 
 This is a successful first startup.
 
 27/27 image layers pulled
+
 ghcr.io/new-usemame/calibre-web-nextgen:latest — Pulled
+
 Docker network — Created
+
 calibre-web-nextgen — Started
 
 So the container is running, but we still need to verify its actual state before opening the application.
@@ -644,7 +647,9 @@ We're looking for calibre-web-nextgen showing Up and port 8083 mapped correctly.
 This confirms the container is running correctly:
 
 Status: Up 4 minutes (healthy)
+
 Port: 8083 → 8083/tcp
+
 Container: calibre-web-nextgen
 
 That (healthy) status is exactly what we wanted. 
@@ -675,8 +680,6 @@ Checksum/backfill completed successfully.
 No startup exception or fatal error appears in the log you provided.
 
 One thing to note for later: the log says HARDCOVER_TOKEN is configured because the stock Compose file contains the placeholder your_hardcover_api_key_here. That's not blocking us, but we'll clean that up later if necessary.
-
-docker compose -f .\docker-compose-lab5.yml ps
 
 
 **Open the application**
