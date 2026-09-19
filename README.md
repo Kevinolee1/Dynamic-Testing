@@ -486,7 +486,7 @@ Confirm that Disk image location now points to your D: drive, then click Apply &
 
 Docker will restart and move its disk image. Keep the Toshiba drive connected during this process.
 
-Once Docker comes back and shows Engine running, send me the result. I'll verify the storage location before pulling Calibre-Web NextGen.
+Once Docker comes back and shows Engine running. I'll verify the storage location before pulling Calibre-Web NextGen.
 
 
 
@@ -498,7 +498,7 @@ Before pulling Calibre-Web NextGen, let's verify from PowerShell that Docker its
 
 Run: docker info --format "Docker Root Dir: {{.DockerRootDir}} | Server Version: {{.ServerVersion}}"
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/19982429774520746b6ec7fc7404586efdcc8042/Screenshot%202026-09-18%20223447.png)
 
 That confirms the Docker backend is responding correctly:
 
