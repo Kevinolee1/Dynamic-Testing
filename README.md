@@ -779,6 +779,9 @@ After that, refresh the Calibre-Web page.
 We're looking for the book count to change from Books (0) to Books (1). If it doesn't, we'll check the ingest logs rather than guessing.
 
 
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f2865bc249a59627ab1cc539bd4ea1e2935499f9/Screenshot%202026-09-19%20012052.png)
+
 The screenshot confirms the book was not ingested—the interface still shows Books (0). That's useful evidence; we won't change anything blindly.
 
 The most likely next place to look is the ingest service logs.
