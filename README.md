@@ -518,7 +518,7 @@ run: Get-ChildItem .\targets\Calibre-Web-NextGen -Filter "*compose*" | Select-Ob
 
 We'll use the target project's own supported configuration rather than inventing one.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/15b8b1151bf07480f996ed778eb3d5770a3b68f8/Screenshot%202026-09-18%20223748.png)
 
 confirms the repository includes both:
 
