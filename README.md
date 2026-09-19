@@ -825,7 +825,7 @@ Change Username to: lab5-user-a
 
 Then scroll down just enough so we can see the email/password fields and permissions/options below it.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/3e4b7826a1539cdc363210144db84a9babbf80be/Screenshot%202026-09-19%20120401.png)
 
 Set a lab-only password that satisfies those requirements. For example:
 
