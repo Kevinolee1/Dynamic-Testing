@@ -531,7 +531,7 @@ Run: Get-Content .\targets\Calibre-Web-NextGen\docker-compose.yml
 
 We'll review the configuration first and make sure its persistent test data won't accidentally go somewhere we don't want.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/74e108d580328e42a604d6e4b4c112eab1929e50/Screenshot%202026-09-18%20233929.png)
 
 This tells us exactly what we need before launching it.
 
