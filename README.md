@@ -720,7 +720,7 @@ Run: Get-ChildItem .\targets\Calibre-Web-NextGen -Recurse -File -Include *.md,*.
 
 This keeps us within the authorized local source repository and will tell us how a fresh installation is intended to be accessed.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/1e4d5c085dd10daf8d88556cd765e184f9cb1b33/Screenshot%202026-09-19%20003439.png)
 
 We found the intended fresh-install credentials directly in the project's source:
 
