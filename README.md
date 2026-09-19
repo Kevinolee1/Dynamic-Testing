@@ -802,7 +802,7 @@ Don't add another book yet.
 
 We're checking whether Books (0) has now changed to Books (1).
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/54ef835a347727a2ccce7c67dd11a3a98622e600/Screenshot%202026-09-19%20012720.png)
 
 That confirms the complete ingest path is working. Your screenshot shows Books (1) and Lab5-Test-Book-01 is visible in the local library. This is good Lab 5 baseline evidence.
 
