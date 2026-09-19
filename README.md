@@ -778,8 +778,6 @@ After that, refresh the Calibre-Web page.
 
 We're looking for the book count to change from Books (0) to Books (1). If it doesn't, we'll check the ingest logs rather than guessing.
 
-
-
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f2865bc249a59627ab1cc539bd4ea1e2935499f9/Screenshot%202026-09-19%20012052.png)
 
 The screenshot confirms the book was not ingested—the interface still shows Books (0). That's useful evidence; we won't change anything blindly.
@@ -790,7 +788,7 @@ Check what happened to the test file
 
 Run: docker compose -f .\docker-compose-lab5.yml logs --since=5m | Select-String -Pattern "Lab5|ingest|txt|error|unsupported|failed" -CaseSensitive:$false
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/b113c2d535a9a9ce9f51aeb5ba425914a04a88ab/Screenshot%202026-09-19%20112203.png)
 
 This tells us the ingest did work, but it took about 73 seconds to convert the TXT to EPUB. The important lines are:
 
