@@ -590,7 +590,7 @@ Then verify only the volume section: Select-String -Path .\docker-compose-lab5.y
 
 We still won't start the container yet. I want to validate the resulting Compose configuration first so we don't discover a path/YAML problem after downloading the image.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/277d689175a8f8b8bd190e8fede65bd7ba69eff3/Screenshot%202026-09-18%20235040.png)
 
 The replacement worked. Your screenshot confirms all four Lab 5 bind mounts now point to the external D: drive:
 
