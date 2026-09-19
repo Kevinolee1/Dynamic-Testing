@@ -466,6 +466,9 @@ After installation, launch Docker Desktop and wait until it reports that the Doc
 
 Click the ⚙️ Settings icon near the top-right.
 
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/6cf3a4507f72169ef3ee949e2501fcc2488ac0d9/Screenshot%202026-09-18%20220643.png)
+
 Then look for Resources → Advanced.
 
 We want the setting called something like Disk image location.
