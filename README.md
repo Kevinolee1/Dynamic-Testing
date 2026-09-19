@@ -756,7 +756,7 @@ No output is expected if our clean library directory is still empty.
 
 After that we'll add a harmless test book and then create the controlled accounts needed for Candidate #1.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/3479ba64817e766faa41ed0d9272bfdf5d1ad9c9/Screenshot%202026-09-19%20110903.png)
 
 This is actually the expected clean-library state.
 
