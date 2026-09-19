@@ -432,6 +432,7 @@ First exit Ubuntu: exit
 
 Once you're back at your PowerShell prompt, run: wsl --list --verbose
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/08ee2fbce534724ce63eff24d4ff9151a9ea72b9/Screenshot%202026-09-17%20210557.png)
 
 Verification passed:
 
