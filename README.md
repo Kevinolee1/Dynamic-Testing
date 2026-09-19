@@ -569,7 +569,7 @@ Then verify it exists: Get-Item .\docker-compose-lab5.yml | Select-Object Name,L
 
 After that, we'll edit only our copy to point those four volumes to D:\Vulnerability-Research-Docker\calibre-lab5\..., while preserving the target's original configuration for comparison and evidence.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/44c9f34633fe9a218df29da953f10dccd468c518/Screenshot%202026-09-18%20234745.png)
 
 This confirms our separate docker-compose-lab5.yml was created successfully at 3,507 bytes. The original target Compose file remains untouched.
 
