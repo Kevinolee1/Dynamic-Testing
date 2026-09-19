@@ -740,7 +740,7 @@ Password: admin123
 
 This is the application's documented default account in our isolated local instance—not a credential-guessing test. Don't change the password, create users, or modify settings yet. We want to capture the clean authenticated baseline first.
 
-
+![Image alt](Screenshot_19-9-2026_04441_localhost.jpeg)
 
 This confirms the documented default administrator login succeeded and the authenticated application is functioning normally.
 
