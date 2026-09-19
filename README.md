@@ -555,7 +555,7 @@ D:\Vulnerability-Research-Docker\calibre-lab5\
 
 These will be Lab 5-only test data, which is exactly what we want for controlled dynamic testing and later restoration. After, Then we'll create a separate Lab 5 Compose file rather than modifying the target repository's original docker-compose.yml.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/9d39a795375e89ea27465b07f7917ee7e484012a/Screenshot%202026-09-18%20234342.png)
 
 This confirms all four isolated Lab 5 directories were created successfully on the D: external drive:
 
