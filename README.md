@@ -814,7 +814,7 @@ In Calibre-Web NextGen, click the wrench/tools icon 🔧 near the top-right.
 
 Look for Admin, User Management, Edit Users, or a similar user-management option.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/128d3f49f65122f0a908f4ef71d51f6ecef0b201/Screenshot%202026-09-19%20120155.png)
 
 ADD NEW USER
 
