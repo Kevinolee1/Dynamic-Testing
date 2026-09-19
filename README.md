@@ -610,9 +610,9 @@ Before downloading or starting anything, run: docker compose -f .\docker-compose
 
 If the configuration is valid, it will normally return to the prompt with no output. Once this passes, we'll be ready for the first controlled startup of Calibre-Web NextGen for Lab 5.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/6b6f2f219170b48d2779de4b67deb51304d44534/Screenshot%202026-09-18%20235559.png)
 
-
-No output and a return to the PowerShell prompt means the Compose configuration passed validation. ✅
+No output and a return to the PowerShell prompt means the Compose configuration passed validation. 
 
 We're ready for the first controlled startup of Calibre-Web NextGen.
 
