@@ -655,7 +655,7 @@ Run: docker compose -f .\docker-compose-lab5.yml logs --tail=30
 
 We'll open Calibre-Web NextGen at localhost:8083 and establish our Lab 5 baseline.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/7b3d7afb3cfafb3b87529a0cce78db1e154ed5f3/Screenshot%202026-09-19%20002112.png)
 
 The startup logs look clean. The important checks all passed:
 
