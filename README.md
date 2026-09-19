@@ -639,7 +639,7 @@ Run: docker compose -f .\docker-compose-lab5.yml ps
 
 We're looking for calibre-web-nextgen showing Up and port 8083 mapped correctly. After that, we'll check its startup logs before opening the web interface.
 
-
+![image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/ce4e4b7ae38ae119fc22f1248b92a39ccbeddca5/Screenshot%202026-09-19%20001750.png)
 
 This confirms the container is running correctly:
 
