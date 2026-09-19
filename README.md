@@ -744,6 +744,67 @@ Your screenshot also establishes a useful Lab 5 baseline: authenticated admin se
 
 We now need controlled test data before Candidate #1 can be tested. The read-status authorization candidate requires at least one book object, and later we'll need separate users with different visibility/access conditions.
 
-Next small step — verify the library is empty on disk
+**Verify the library is empty on disk
 
 Don't change anything in the web interface yet. In PowerShell run: Get-ChildItem "D:\Vulnerability-Research-Docker\calibre-lab5\library" -Force
+
+No output is expected if our clean library directory is still empty.
+
+After that we'll add a harmless test book and then create the controlled accounts needed for Candidate #1.
+
+
+
+This is actually the expected clean-library state.
+
+The directory isn't literally empty because Calibre-Web NextGen initialized its database files:
+
+metadata.db
+
+metadata.db-shm
+
+metadata.db-wal
+
+But there are no book files/directories yet, which matches the web interface showing Books (0). So we have a clean baseline. 
+
+Create harmless test book #1
+
+Rather than use a real copyrighted book, we'll create our own simple .txt test book. Run: Set-Content "D:\Vulnerability-Research-Docker\calibre-lab5\ingest\Lab5-Test-Book-01.txt" "Lab 5 authorized vulnerability research test book. No real user data."
+
+After that, refresh the Calibre-Web page.
+
+We're looking for the book count to change from Books (0) to Books (1). If it doesn't, we'll check the ingest logs rather than guessing.
+
+
+The screenshot confirms the book was not ingested—the interface still shows Books (0). That's useful evidence; we won't change anything blindly.
+
+The most likely next place to look is the ingest service logs.
+
+Check what happened to the test file
+
+Run: docker compose -f .\docker-compose-lab5.yml logs --since=5m | Select-String -Pattern "Lab5|ingest|txt|error|unsupported|failed" -CaseSensitive:$false
+
+
+
+This tells us the ingest did work, but it took about 73 seconds to convert the TXT to EPUB. The important lines are:
+
+New file detected → Converting file from txt to epub → EPUB output written → Conversion ... complete
+
+The repeated Fontconfig messages are warnings about its cache directories; they did not prevent the conversion.
+
+Refresh http://localhost:8083 again now.
+
+Don't add another book yet.
+
+We're checking whether Books (0) has now changed to Books (1).
+
+
+
+That confirms the complete ingest path is working. Your screenshot shows Books (1) and Lab5-Test-Book-01 is visible in the local library. This is good Lab 5 baseline evidence.
+
+We now have the application running, authenticated admin access, an isolated database/library, and one controlled test object. Next we need a non-admin test user for Candidate #1.
+
+Open User Management
+
+In Calibre-Web NextGen, click the wrench/tools icon 🔧 near the top-right.
+
+Look for Admin, User Management, Edit Users, or a similar user-management option.
