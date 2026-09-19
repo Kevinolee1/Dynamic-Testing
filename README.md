@@ -704,11 +704,12 @@ From PowerShell in C:\Users\eelve\Vulnerability-Research-Lab, run: docker compos
 
 We'll use that to determine whether the fresh installation generated credentials or expects a documented default. Don't enter random credentials yet.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/014bc3660a66eb71320759ed9e494f4846a252e5/Screenshot%202026-09-19%20003135.png)
 
 That confirms the logs do not expose or generate initial credentials. The two matches are only authentication-related configuration messages:
 
 SESSION_COOKIE_SECURE set to False (Standard/LDAP login)
+
 Magic Link QRCode is enabled
 
 So we shouldn't guess credentials.
