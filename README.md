@@ -445,7 +445,12 @@ So Ubuntu is installed correctly and configured as WSL2. Stopped is normal becau
 
 We can now move to the project's documented Windows runtime approach. Install Docker Desktop for Windows from the official Docker site:
 
-![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/d495d55eaccf280dfac3b7cd4d9085d851ac8929/Screenshot%202026-09-17%20210740.png
+Click on download
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/d495d55eaccf280dfac3b7cd4d9085d851ac8929/Screenshot%202026-09-17%20210740.png)
+
+Select the version for your computer
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/833af0bd1d4195da937212a925d7cb4f6291fc75/Screenshot%202026-09-17%20210908.png)
 
 During installation, keep the WSL 2 backend option enabled. You do not need Hyper-V if the installer offers WSL2 as the backend.
 
