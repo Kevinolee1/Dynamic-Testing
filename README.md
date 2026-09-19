@@ -452,6 +452,10 @@ Select the version for your computer
 
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/833af0bd1d4195da937212a925d7cb4f6291fc75/Screenshot%202026-09-17%20210908.png)
 
+Select your configurations and what for Docker to install
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/5671c61cdf9112088b7621545ffa3a80c3854ad6/Screenshot%202026-09-18%20184257.png)
+
 During installation, keep the WSL 2 backend option enabled. You do not need Hyper-V if the installer offers WSL2 as the backend.
 
 After installation, launch Docker Desktop and wait until it reports that the Docker engine is running.
