@@ -851,3 +851,129 @@ Then click SAVE.
 That gives us our controlled low-privilege account for the authorization test.
 
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/98172fbee65c32c1587e133059c0194dcf3b7b88/Screenshot%202026-09-19%20120744.png)
+
+**Create Book 2**
+
+In PowerShell, run: Set-Content "D:\Vulnerability-Research-Docker\calibre-lab5\ingest\Lab5-Test-Book-02.txt" "Lab 5 authorization boundary test book. No real user data."
+
+Then wait about 1–2 minutes for Calibre-Web to ingest/convert it and refresh the Books page.
+
+We want to see: 
+
+Lab5-Test-Book-01
+
+Lab5-Test-Book-02
+
+
+
+The dataset now has Books (2):
+
+Lab5-Test-Book-01
+
+Lab5-Test-Book-02
+
+Now we need to create the actual authorization boundary. Book 1 will remain visible to lab5-user-a, while we'll make Book 2 unavailable to that user.
+
+**Open Book 2**
+
+While still logged in as admin, click Lab5-Test-Book-02.
+
+Don't change anything yet.
+
+We want to see what editing/category/tag options are available so we can choose the cleanest supported way to restrict Book 2 from lab5-user-a.
+
+
+
+Book 2 has ID 3. Record that—we'll need it later when we manipulate the read-status request.
+
+We also see + Add tag, which gives us a clean way to create a visibility restriction if Calibre-Web's user settings support tag-based restrictions.
+
+tag Book 2
+
+Click + Add tag and add: lab5-restricted
+
+Apply/save the tag if prompted.
+
+We'll configure lab5-user-a so this tag is excluded from their normal library view. That will establish our control condition: admin can access Book ID 3, but lab5-user-a cannot.
+
+
+
+Book ID 3 now has the tag lab5-restricted.
+
+Now we need to make that tag invisible to lab5-user-a.
+
+Next step — edit lab5-user-a
+
+Go back to:
+
+Admin Settings → Users → Edit Users
+
+Select lab5-user-a.
+
+Scroll through that user's settings and look for something related to visibility, tags, restrictions, allowed/denied tags, or content restrictions.
+
+We'll configure it so:
+
+Book 1 → visible
+
+Book 3 → hidden because of lab5-restricted
+
+That distinction is what will let us properly test whether the server enforces object-level authorization when we later submit Book ID 3 directly.
+
+
+
+this is exactly the section we needed. I can see ADD ALLOWED/DENIED TAGS.
+
+Click: ADD ALLOWED/DENIED TAGS
+
+
+
+That means the restriction dialog is open, but we haven't created a rule yet.
+
+Click Add View Restriction.
+
+
+
+Click CLOSE.
+
+Then, back on the lab5-user-a Edit User page, scroll to the bottom and click SAVE to save the user's restriction.
+
+
+
+The authorization restriction is now saved.
+
+**test the account normally**
+
+Log out of the admin account.
+
+Then log in as:
+
+Username: lab5-user-a
+Password: the password you created for that account.
+
+Once logged in, click Books.
+
+Don't try to access Book ID 3 directly yet. We first need to establish normal authorized behavior.
+
+Expected control result: Book 1 is visible, and Lab5-Test-Book-02 (ID 3) is absent. If that's what happens, we'll have established the visibility boundary before beginning the actual authorization test.
+
+
+
+
+This is the control evidence we needed.
+
+Logged in as lab5-user-a, the library shows Books (1) and only Lab5-Test-Book-01. Book ID 3 (Lab5-Test-Book-02) is successfully hidden by the deny-tag restriction.
+
+So we have established the authorization boundary:
+
+Admin: can access Book 3
+
+lab5-user-a: cannot normally see Book 3
+
+identify Book 1's ID
+
+While still logged in as lab5-user-a, click Lab5-Test-Book-01.
+
+Don't mark it read/unread yet.
+
+Send me a screenshot of its details page showing the ID. After that we'll establish normal read-status behavior for an authorized book before changing anything involving hidden Book ID 3.
