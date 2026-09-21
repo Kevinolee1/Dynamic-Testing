@@ -1102,3 +1102,24 @@ Response: 200 OK
 That matches the /ajax/toggleread/<book_id> route we identified during static analysis.
 
 I'll log out of lab5-user-a and log into your admin account. Open Lab5-Test-Book-02 and look at its ID on the details page, just like Book 1 shows ID: 2.
+
+
+
+
+This confirms our restricted target:
+
+Book 2 ID = 3, and the screenshot also shows the lab5-restricted tag. Keep this screenshot as evidence.
+
+Our controlled setup is now:
+
+Book 1 — ID 2 — visible to lab5-user-a
+
+Book 2 — ID 3 — hidden from lab5-user-a
+
+Control request — POST /ajax/toggleread/2 → 200 OK
+
+**Candidate #1 — manipulated request**
+
+Now I'm going to log back in as lab5-user-a and return to Book 1 (/book/2). Keep DevTools open.
+
+I'm going to resend the same authenticated read-status request, changing only the object ID from 2 to 3. That's the core authorization test.
