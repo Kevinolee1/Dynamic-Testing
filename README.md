@@ -1000,7 +1000,7 @@ Ctrl + Shift + I.
 
 At the top of DevTools, click the + next to Console.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/ec5a64d2ab1fc05b110a7f3db7ec7005c8b18a58/Screenshot%202026-09-21%20122748.png)
 
 A menu of tools will appear. Select Network.
 
