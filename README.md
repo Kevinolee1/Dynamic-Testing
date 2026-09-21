@@ -940,7 +940,7 @@ Click CLOSE.
 
 Then, back on the lab5-user-a Edit User page, scroll to the bottom and click SAVE to save the user's restriction.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/ec5e4439b1c19175106634a62a5d48bf16818451/Screenshot%202026-09-19%20134043.png)
 
 The authorization restriction is now saved.
 
