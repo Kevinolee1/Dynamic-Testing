@@ -992,7 +992,7 @@ Now I'll
 
 Open Lab5-Test-Book-01.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/762bb74c4fcf96c3ecb409b924e407fd075faa3d/Screenshot%202026-09-21%20122158.png)
 
 Ctrl + Shift + I.
 
