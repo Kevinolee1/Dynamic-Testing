@@ -982,8 +982,6 @@ Don't mark it read/unread yet.
 
 After that we'll establish normal read-status behavior for an authorized book before changing anything involving hidden Book ID 3.
 
-![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2a3d7b0c76bde798683302a8a48f7c3e5c96878b/Screenshot%202026-09-21%20125540.png)
-
 lab5-user-a sees Books (1) and only Lab5-Test-Book-01; restricted Book 2 is hidden.
 
 Now we test the read-status function on an object the user is authorized to access before touching restricted Book 2.
@@ -996,7 +994,7 @@ Open Lab5-Test-Book-01.
 
 Ctrl + Shift + I.
 
-
+![Image alt](![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2a3d7b0c76bde798683302a8a48f7c3e5c96878b/Screenshot%202026-09-21%20125540.png))
 
 At the top of DevTools, click the + next to Console.
 
