@@ -1017,3 +1017,88 @@ Leave DevTools recording.
 Exit the reader back to the Book 1 details page.
 
 Use the normal UI option to mark Book 1 as Read.
+
+I' looking at the Network panel for a new request. We expect something related to toggleread based on our static analysis.
+
+
+
+the Network panel contains a lot of page-load traffic, so the read-status request isn't obvious yet.
+
+I can see the orange checkmark on Book 1, which indicates the normal UI action changed its read status. That's useful control evidence. 
+
+Now I'm going to Isolate the request
+
+In the Filter box at the top of Network, type: toggleread
+
+If our expected request was captured, the list should narrow down to something resembling:
+
+toggleread/...
+
+
+
+The action clearly changed Book 1's state, but we need to capture the actual network request.
+
+I'll redo the control action, this time filtering before the click:
+
+Remove toggleread from the Filter box.
+
+Click Fetch/XHR near the top of Network.
+
+Click the clear (⊘) button.
+
+
+
+
+Leave Network recording.
+
+Click the orange read-status/check icon on Book 1 once. This will toggle it back.
+
+
+
+This tells me something important: clicking the icon did not produce an obvious toggleread Fetch/XHR request. The only Fetch/XHR entry shown is user_profiles.json.
+
+I shouldn't keep guessing at the UI. Since this is our authorized local lab, the quickest clean way is to inspect what the browser sends while performing the action from the book details page, rather than the Books-list icon.
+
+
+
+The Network panel is recording correctly, but clicking the orange “Currently reading” bar did not generate a Fetch/XHR request. So that bar is likely displaying reading progress/status rather than being the read/unread toggle we're trying to test.
+
+The actual control appears to be the small square icon near the top of the book card—the first icon above the title.
+
+Let's test that instead.
+
+I'll click the small square icon above the Book 1 title once.
+
+
+
+A single XHR request named 2, status 200, immediately after using the Mark As Read control. Book 1 is also confirmed as ID 2. This strongly suggests we've captured the read-status request for the authorized object.
+
+**inspect the request**
+
+In the Network panel, click the row named: 2
+
+A details panel should open. Select Headers.
+
+This will establish the exact normal/control request before we test restricted Book 2.
+
+
+
+This is the exact control request I needed. Keep this screenshot as Lab 5 evidence.
+
+We have now verified:
+
+Authorized user: lab5-user-a
+Authorized object: Lab5-Test-Book-01
+Book ID: 2
+
+Request URL: http://localhost:8083/ajax/toggleread/2
+
+Method: POST
+
+Response: 200 OK
+
+**Identify restricted Book 2's current ID**
+
+That matches the /ajax/toggleread/<book_id> route we identified during static analysis.
+
+I'll log out of lab5-user-a and log into your admin account. Open Lab5-Test-Book-02 and look at its ID on the details page, just like Book 1 shows ID: 2.
