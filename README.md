@@ -953,6 +953,8 @@ Then log in as:
 Username: lab5-user-a
 Password: the password you created for that account.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2c7399779be115b717cf9e85a2c78adb596d163c/Screenshot%202026-09-19%20134359.png)
+
 Once logged in, click Books.
 
 Don't try to access Book ID 3 directly yet. We first need to establish normal authorized behavior.
