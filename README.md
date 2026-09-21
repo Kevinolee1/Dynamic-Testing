@@ -866,7 +866,7 @@ Lab5-Test-Book-01
 
 Lab5-Test-Book-02
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/e057cb0edbb829026d2d0b9a08faf98c9c3dfb61/Screenshot%202026-09-19%20125704.png)
 
 The dataset now has Books (2):
 
