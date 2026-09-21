@@ -922,7 +922,7 @@ Book 3 → hidden because of lab5-restricted
 
 That distinction is what will let us properly test whether the server enforces object-level authorization when we later submit Book ID 3 directly.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/878c757a9204b13c908ac61d1eb0c7c053c2e31f/Screenshot_19-9-2026_132814_localhost%20Settings.jpeg)
 
 this is exactly the section 
 
