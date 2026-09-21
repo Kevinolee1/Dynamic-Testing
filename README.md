@@ -910,6 +910,8 @@ Admin Settings → Users → Edit Users
 
 Select lab5-user-a.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/40513bbff67ce88c966c124f7ecd6753ace437ea/Screenshot%202026-09-19%20132519.png)
+
 Scroll through that user's settings and look for something related to visibility, tags, restrictions, allowed/denied tags, or content restrictions.
 
 We'll configure it so:
