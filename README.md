@@ -1002,7 +1002,7 @@ At the top of DevTools, click the + next to Console.
 
 A menu of tools will appear. Select Network.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/89701581acc649431d2993d3868691c281aa30ba/Screenshot%202026-09-21%20122831.png)
 
 Network capture is working, and the red record button is active. You're ready for the control test.
 
