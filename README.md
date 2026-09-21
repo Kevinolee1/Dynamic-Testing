@@ -980,4 +980,42 @@ While still logged in as lab5-user-a, click Lab5-Test-Book-01.
 
 Don't mark it read/unread yet.
 
-Send me a screenshot of its details page showing the ID. After that we'll establish normal read-status behavior for an authorized book before changing anything involving hidden Book ID 3.
+After that we'll establish normal read-status behavior for an authorized book before changing anything involving hidden Book ID 3.
+
+
+
+lab5-user-a sees Books (1) and only Lab5-Test-Book-01; restricted Book 2 is hidden.
+
+Now we test the read-status function on an object the user is authorized to access before touching restricted Book 2.
+
+Now I'll
+
+Open Lab5-Test-Book-01.
+
+
+
+Ctrl + Shift + I.
+
+
+
+At the top of DevTools, click the + next to Console.
+
+
+
+A menu of tools will appear. Select Network.
+
+
+
+Network capture is working, and the red record button is active. You're ready for the control test.
+
+I can also see Book 1 is currently at 0%, which is a good clean starting state.
+
+Candidate #1 — Control request
+
+Click the clear network log button — the circle with a slash (⊘) near the upper-left of the Network panel.
+
+Leave DevTools recording.
+
+Exit the reader back to the Book 1 details page.
+
+Use the normal UI option to mark Book 1 as Read.
