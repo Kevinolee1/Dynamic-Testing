@@ -924,13 +924,15 @@ That distinction is what will let us properly test whether the server enforces o
 
 
 
-this is exactly the section we needed. I can see ADD ALLOWED/DENIED TAGS.
+this is exactly the section 
 
 Click: ADD ALLOWED/DENIED TAGS
 
 
 
 That means the restriction dialog is open, but we haven't created a rule yet.
+
+Type lab5-restricted
 
 Click Add View Restriction.
 
