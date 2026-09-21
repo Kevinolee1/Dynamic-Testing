@@ -884,8 +884,6 @@ Don't change anything yet.
 
 We want to see what editing/category/tag options are available so we can choose the cleanest supported way to restrict Book 2 from lab5-user-a.
 
-
-
 Book 2 has ID 3. Record that—we'll need it later when we manipulate the read-status request.
 
 We also see + Add tag, which gives us a clean way to create a visibility restriction if Calibre-Web's user settings support tag-based restrictions.
@@ -898,7 +896,7 @@ Apply/save the tag if prompted.
 
 We'll configure lab5-user-a so this tag is excluded from their normal library view. That will establish our control condition: admin can access Book ID 3, but lab5-user-a cannot.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/36b245b33ed530724ec156b3d2405c0842d93885/Screenshot%202026-09-19%20131342.png)
 
 Book ID 3 now has the tag lab5-restricted.
 
