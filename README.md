@@ -962,7 +962,7 @@ Don't try to access Book ID 3 directly yet. We first need to establish normal au
 Expected control result: Book 1 is visible, and Lab5-Test-Book-02 (ID 3) is absent. If that's what happens, we'll have established the visibility boundary before beginning the actual authorization test.
 
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2629f36d3d5fb8c3c313dd677616379e657bcc52/Screenshot_19-9-2026_13467_localhost%20second%20book%20invisable.jpeg)
 
 This is the control evidence we needed.
 
