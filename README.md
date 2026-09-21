@@ -856,6 +856,8 @@ That gives us our controlled low-privilege account for the authorization test.
 
 In PowerShell, run: Set-Content "D:\Vulnerability-Research-Docker\calibre-lab5\ingest\Lab5-Test-Book-02.txt" "Lab 5 authorization boundary test book. No real user data."
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/c70731f3d8b5bf51c406cfece9da955cda585999/Screenshot%202026-09-19%20125022.png) 
+
 Then wait about 1–2 minutes for Calibre-Web to ingest/convert it and refresh the Books page.
 
 We want to see: 
