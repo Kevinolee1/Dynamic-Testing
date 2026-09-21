@@ -932,9 +932,9 @@ Type (lab5-restricted) to add the rule
 
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f5116f83b0700dfa7a5bf8e4f5ad2cac638bd2c9/Screenshot%202026-09-19%20133735.png)
 
-Click Add View Restriction.
+Click deny to add View Restriction.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f366986c0c6ea53cf9f713e2e6405c64f39aefb8/Screenshot%202026-09-19%20133807.png)
 
 Click CLOSE.
 
