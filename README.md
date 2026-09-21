@@ -928,11 +928,9 @@ this is exactly the section
 
 Click: ADD ALLOWED/DENIED TAGS
 
+Type (lab5-restricted) to add the rule
 
-
-That means the restriction dialog is open, but we haven't created a rule yet.
-
-Type lab5-restricted
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f5116f83b0700dfa7a5bf8e4f5ad2cac638bd2c9/Screenshot%202026-09-19%20133735.png)
 
 Click Add View Restriction.
 
