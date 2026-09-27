@@ -1021,7 +1021,7 @@ toggleread
 
 It may appear simply as 2 in the Name column.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/49c8b961284896c5304fdfb9fc478821c9aa1147/screenshot.png)
 
 We will verify the control request before doing the manipulated request.
 
