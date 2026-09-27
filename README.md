@@ -1281,7 +1281,7 @@ Then manually retyping that long token:
  
 x.set('csrf_token','IjQyZWZkN2Q1OGU0N2EzMWZhNDg2NjM1YzkyY2NmZmYzNGYzZDYwYzYi.arhtNA.St4ObAo3wjL05_N1-3AjXebqx_o')
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/ee6b18404b1ffe4f3b469b5019dec3dbfb46a0e3/Screenshot%202026-09-27%20001246.png)
 
 the setup succeeded.
 
@@ -1302,7 +1302,6 @@ At the > prompt, type: fetch('/ajax/toggleread/3',{method:'POST',body:x})
 This will send:
 
 - authenticated as lab5-user-a
-  
   
 - valid CSRF token
   
