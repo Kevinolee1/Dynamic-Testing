@@ -1334,9 +1334,6 @@ Go back to Book 1 → Network.
    
 4. Copy the new csrf_token=... value.
 
-![Image alt](That's actually useful: the request construction is now reaching CSRF validation correctly. We just used an old token.
-Get a fresh token)
-
 Let's refresh the CSRF state
 
 Don't send another manipulated request yet.
@@ -1351,14 +1348,34 @@ Don't send another manipulated request yet.
 
 5. Open the new 2 request → Payload → View source.
    
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/985b8d123ce9a39c9a34b950ac508e375d852526/Screenshot%202026-09-27%20003528.png)
 
 The hard refresh worked. The token in your screenshot is different from the expired one. The first portion is similar, but the signed/time-dependent portion has changed.
 
 We now have a fresh CSRF token.
 
-This should finally give us the clean Candidate #1 authorization test with a fresh CSRF token.
+this now while it's fresh
 
+Click View source and copy the entire new:
+
+csrf_token=...
+
+Go straight to DevTools → Console. We already have x defined, so replace its expired token with the fresh one by typing:
+
+x.set('csrf_token','IjQyZWZkN2Q1OGU0N2EzMWZhNDg2NjM1YzkyY2NmZmYzNGYzZDYwYzYi.aricTg.wWpmZDaID2Qvp-37prS68h7nzLM')
+
+Press Enter You should get:
+
+undefined
+
+Then immediately type:
+fetch('/ajax/toggleread/3',{method:'POST',body:x})
+
+Don't click Mark As Read again and don't refresh. We'll immediately use this fresh token for the controlled /ajax/toggleread/3 request.
+
+
+
+This should finally give us the clean Candidate #1 authorization test with a fresh CSRF token.
 
 
 So x is now prepared correctly with the fresh token.
