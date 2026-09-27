@@ -1531,5 +1531,5 @@ Book ID 2 → restricted Book ID 3
 
 Press Enter
 
-![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/a31619cc7ae6997cbcfd82a058d967dd850bcf87/Screenshot%202026-09-27%20012055.png)
+![Image alt]()
 
