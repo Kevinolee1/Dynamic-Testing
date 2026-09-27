@@ -1193,7 +1193,7 @@ and press Enter.
 
 I'm specifically looking for activity at the time of that /ajax/toggleread/3 request. Then we'll determine why it returned 400 and whether Book 3's server-side state changed despite the response.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/ee05ef5bfa0ad9bc29a6cc53488429e1d1572374/Screenshot%202026-09-26%20224655.png)
 
 I've found the reason for the 400.
 The key log entry is:
