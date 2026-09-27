@@ -1244,7 +1244,7 @@ At the > prompt, manually type this short command:document.querySelector('[name=
 
 Press enter
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/d96128923ddf749e1896b064a71a82cd1d46e22f/Screenshot%202026-09-26%20231639.png)
 
 The command was entered correctly, but Edge returned:
 
