@@ -1437,8 +1437,7 @@ Next test — match the legitimate request
 
 Because the token is still fresh, go to Console and run this: fetch('/ajax/toggleread/3',{method:'POST',headers:{'X-CSRFToken':x.get('csrf_token'),'X-Requested-With':'XMLHttpRequest'},body:x})
 
-
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/db5f754730f8a3da0d259d562895ebbb289a4980/Screenshot%202026-09-27%20010848.png)
 
 that attempt did execute, and the server returned 400. The lowercase/uppercase in 'Post' is not the issue; HTTP method tokens are case-sensitive by spec, but browsers normalize Fetch’s method to POST, as shown by the console output.
 
