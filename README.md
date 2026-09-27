@@ -1125,7 +1125,7 @@ In DevTools, I'll click the Console tab at the top.
 
 By using my existing authenticated browser session. That will avoid Edge's broken Edit-and-Resend behavior and let us see the actual server response.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/7529fe664d75940fb869236ae68badd4b8bb550a/Screenshot%202026-09-26%20221251.png)
 
 Using existing authenticated browser session. That will avoid Edge's broken Edit-and-Resend behavior and let us see the actual server response. Let's use a cleaner method that stays inside the authenticated browser session.
 
