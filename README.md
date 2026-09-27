@@ -1423,7 +1423,7 @@ Content-Length
 
 Also include Form Data if it fits on screen.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/829f1dc5f55c00500938d2dc3b7dea6ebc2e08b2/Screenshot%202026-09-27%20005245.png)
 
 The legitimate request includes both the CSRF form field and an HTTP request header:
 
