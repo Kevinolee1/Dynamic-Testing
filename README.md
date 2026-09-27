@@ -1092,3 +1092,422 @@ Now execute the manipulated request by clicking the blue send button
 
 
 
+Your screenshot shows the manipulated URL correctly as:
+http://localhost:8083/ajax/toggleread/3
+
+but the Network Console reports:
+
+Status: FETCH_ERROR
+
+Size: 0 bytes
+
+So Edge's Edit and Resend mechanism itself did not give us an HTTP response. We therefore don't yet know whether the server accepted or rejected Book ID 3.
+
+Next step — check whether the request reached the serve.
+
+In PowerShell run: docker logs calibre-web-nextgen --tail 30
+
+I'm checking whether POST /ajax/toggleread/3 actually reached Calibre-Web. If it did, we'll use that evidence and independently check the database. If it didn't, I'll use a different controlled way to resend the authenticated request instead of relying on Edge's Network Console.
+
+
+
+This log tells us something important: I do not see a Book 3 read-status event after the manipulated attempt. The visible read-status 
+
+entries are all for Book 2, for example: Book 2 readbit toggled
+
+There is no corresponding: Book 3 readbit toggled
+
+So the Edge FETCH_ERROR appears to have prevented the manipulated request from reaching the application successfully. Candidate #1 has not passed or failed yet.
+
+I'll retry the manipulated request from the browser Console.
+
+In DevTools, I'll click the Console tab at the top.
+
+By using my existing authenticated browser session. That will avoid Edge's broken Edit-and-Resend behavior and let us see the actual server response.
+
+
+
+Using existing authenticated browser session. That will avoid Edge's broken Edit-and-Resend behavior and let us see the actual server response. Let's use a cleaner method that stays inside the authenticated browser session.
+
+
+
+The red CSP errors are from the earlier Network Console resend attempt; we can ignore them for this test.
+
+Click at the > prompt near the bottom of the main Console and enter this one command:
+
+fetch('/ajax/toggleread/3', {method:'POST'}).then(async r => console.log('STATUS:', r.status, 'BODY:', await r.text()))
+
+This uses the current lab5-user-a browser session and changes only the target to restricted Book ID 3.
+
+We're specifically looking for:
+
+STATUS: ...
+
+BODY: ...
+
+After that, we'll independently verify the server-side database state before drawing any vulnerability conclusion.
+
+
+
+Edge is blocking paste as a self-XSS protection; the yellow message confirms it.
+
+At the > prompt, manually type:
+
+allow pasting
+
+
+
+Edge did not enable pasting; it interpreted allow pasting as JavaScript and returned Unexpected identifier 'pasting'. Nothing was sent to the application
+
+I can type the test command manually. At the > prompt in the top Console, manually type this shorter command:
+
+fetch('/ajax/toggleread/3',{method:'POST'})
+
+
+
+
+this time the manipulated request definitely reached the server.
+
+Your screenshot shows:
+
+POST http://localhost:8083/ajax/toggleread/3
+
+400 (BAD REQUEST)
+
+So we now have:
+
+Control
+
+POST /ajax/toggleread/2 → 200 OK
+
+Manipulated
+POST /ajax/toggleread/3 → 400 Bad Request
+
+But we cannot conclude Candidate #1 is blocked yet. A 400 could come from authorization logic, missing request data/CSRF expectations, or another validation condition. We need to see what the application logged.
+
+Next step
+
+In PowerShell, run: docker logs calibre-web-nextgen --tail 20
+
+and press Enter.
+
+I'm specifically looking for activity at the time of that /ajax/toggleread/3 request. Then we'll determine why it returned 400 and whether Book 3's server-side state changed despite the response.
+
+
+
+I've found the reason for the 400.
+The key log entry is:
+
+INFO {flask_wtf.csrf:263} The CSRF token is missing.
+
+So the 400 was not an authorization rejection. Our Console fetch() omitted the CSRF token that the legitimate UI request includes. 
+
+Therefore Candidate #1 is still unresolved.
+
+We need to repeat the manipulated request while preserving the legitimate request's CSRF data.
+
+Next — inspect the legitimate request's payload
+
+Go back to DevTools → Network.
+
+Click the legitimate 2 XHR request again, then click the Payload tab.
+
+Send me a screenshot of what you see there.
+
+We're looking for the CSRF token/form data used by the legitimate: POST /ajax/toggleread/2
+
+Once I have it, I'll send the same authenticated request to /ajax/toggleread/3 while changing only the book ID, which gives us the clean authorization test we originally intended.
+
+
+
+This is exactly what we needed. The legitimate control request contains form data with a csrf_token. That explains why our simple fetch() returned 400.
+
+The cleanest test is to reuse the legitimate request itself so its cookie, CSRF token, content type, and other headers remain unchanged.
+
+Manipulated request — proper retry
+
+In the Network list, right-click the legitimate request named 2.
+
+Choose Edit and Resend again.
+This time make sure the editor retains the request body/form data containing:
+
+csrf_token=...
+
+Change only the URL:
+
+/ajax/toggleread/2
+
+to:
+
+/ajax/toggleread/3
+
+Before clicking Send
+
+
+
+Perfect. You're now in the main browser Console, and the bottom Network Console is gone.
+
+I need the legitimate CSRF token without manually copying it. Since the page already generated one, first let's see whether it's available in the page DOM.
+
+At the > prompt, manually type this short command:document.querySelector('[name="csrf_token"]')?.value
+
+Press enter
+
+
+
+The command was entered correctly, but Edge returned:
+
+Uncaught TypeError: document.querySelector is not a function
+
+So this DevTools execution context has something overriding the normal document object. Nothing was changed on the server.
+
+Rather than spending more time on the DOM, I'll use the CSRF token we already captured in the legitimate Network request.
+
+Go back to Network → click the legitimate 2 request → Payload.
+
+Then click View source next to Form data.
+
+That should give us the exact URL-encoded request body, which we can reuse while changing only the endpoint from Book 2 to Book 3.
+
+
+
+This is the exact raw form body I needed. The legitimate request contains only:
+csrf_token=<token>
+
+So now we know the earlier 400 happened because our test request omitted this form field—not because Book 3 was rejected by authorization.
+
+Next step
+
+In that Payload → Form data area, right-click directly on the long csrf_token=... value.
+
+See whether Edge gives you an option such as
+
+I'll Write it down
+
+Then manually retyping that long token: 
+ 
+x.set('csrf_token','IjQyZWZkN2Q1OGU0N2EzMWZhNDg2NjM1YzkyY2NmZmYzNGYzZDYwYzYi.arhtNA.St4ObAo3wjL05_N1-3AjXebqx_o')
+
+
+
+the setup succeeded.
+
+The important part is at the bottom:
+
+x = new URLSearchParams()
+
+followed by:
+
+x.set('csrf_token','csrf_token=...')
+
+and Edge returned:
+
+Now we're ready for the actual Candidate #1 manipulated request.
+
+At the > prompt, type: fetch('/ajax/toggleread/3',{method:'POST',body:x})
+
+This will send:
+
+- authenticated as lab5-user-a
+  
+  
+- valid CSRF token
+  
+- POST
+  
+- restricted Book ID 3
+  
+- same operation as the legitimate control request
+
+
+
+The properly constructed request still returned 400 Bad Request, so now we need to determine why. We still should not classify Candidate #1 as blocked or vulnerable yet.
+
+Run this in PowerShell: docker logs calibre-web-nextgen --tail 10
+
+I specifically want the newest entry corresponding to this request. If it still says CSRF token missing/invalid, I'll fix the request construction. If it shows something different, that tells us which server-side control produced the 400.
+
+
+
+That's actually useful: the request construction is now reaching CSRF validation correctly. We just used an old token.
+Get a fresh token
+
+Go back to Book 1 → Network.
+
+1. Clear the Network log.
+ 
+2. Click the Mark As Read icon once to generate a fresh legitimate request.
+   
+3. Click the new 2 request → Payload → View source.
+   
+4. Copy the new csrf_token=... value.
+
+
+
+Let's refresh the CSRF state
+
+Don't send another manipulated request yet.
+
+1. Close the Book 1 tab or simply refresh the page with Ctrl+F5.
+
+2. Stay logged in as lab5-user-a.
+
+3. After the page reloads, open Network → Fetch/XHR and clear the log.
+ 
+4. Click Mark As Read once.
+
+5. Open the new 2 request → Payload → View source.
+   
+
+
+The hard refresh worked. The token in your screenshot is different from the expired one. The first portion is similar, but the signed/time-dependent portion has changed.
+
+We now have a fresh CSRF token.
+
+This should finally give us the clean Candidate #1 authorization test with a fresh CSRF token.
+
+
+
+So x is now prepared correctly with the fresh token.
+
+Now send the manipulated request
+
+At the > prompt, type: fetch('/ajax/toggleread/3',{method:'POST',body:x})
+
+
+
+Now we need the server's reason.
+
+In PowerShell, run: docker logs calibre-web-nextgen --tail 5
+
+
+
+Interesting — there is no new CSRF error corresponding to the latest manipulated request in those five lines. Instead, the newest application events are:
+
+04:32:20 Book 2 readbit toggled
+
+04:32:24 Book 2 readbit toggled
+
+Those are the legitimate Book 1/control operations (book_id=2), not restricted book_id=3.
+
+But the browser showed /ajax/toggleread/3 → 400, so we still need the exact server-side reason. Let's stop guessing and inspect the HTTP response itself.
+
+Go to DevTools → Network. You should see the failed request named 3.
+
+Click 3, then click the Response tab.
+
+
+
+That response confirms only a generic HTTP 400; it doesn't reveal the reason. More importantly, we have spent enough time guessing at the request differences.
+The next move should be to compare the exact legitimate request with our manipulated request, especially headers and body.
+Go to Network → legitimate request 2 → Headers. Scroll down to Request Headers and send me a screenshot showing that section, particularly:
+
+Content-Type
+
+Cookie
+
+Origin
+
+Referer
+
+Content-Length
+
+Also include Form Data if it fits on screen.
+
+
+
+The legitimate request includes both the CSRF form field and an HTTP request header:
+
+X-Csrftoken: <fresh token>
+
+X-Requested-With: XMLHttpRequest
+
+Our fetch() only supplied the token in the body. That explains why reproducing the UI request wasn't exact.
+
+Next test — match the legitimate request
+
+Because the token is still fresh, go to Console and run this: fetch('/ajax/toggleread/3',{method:'POST',headers:{'X-CSRFToken':x.get('csrf_token'),'X-Requested-With':'XMLHttpRequest'},body:x})
+
+
+
+
+that attempt did execute, and the server returned 400. The lowercase/uppercase in 'Post' is not the issue; HTTP method tokens are case-sensitive by spec, but browsers normalize Fetch’s method to POST, as shown by the console output.
+
+In PowerShell, run: docker logs calibre-web-nextgen --tail 5
+
+If it reports expired/invalid CSRF, we'll generate a fresh control request and compare the exact CSRF header/body immediately. If there is no CSRF error, we'll know the 400 is coming from another application check and trace that instead.
+
+
+
+There is no new CSRF log entry corresponding to the latest POST /ajax/toggleread/3.
+
+That means we shouldn't assume CSRF caused this latest 400. We need to inspect the newest request itself.
+
+I'll go to DevTools → Network and click the newest request named 3 that corresponds to the attempt we just made.
+Then open Headers → General and send me a screenshot showing:
+
+- Request URL
+  
+- Request Method
+  
+- Status Code
+
+
+
+  the manipulated request is reaching the application:
+  
+- Request URL: http://localhost:8083/ajax/toggleread/3
+- 
+- Method: POST
+- 
+- Result: 400 BAD REQUEST
+- 
+Now we need to determine why it is returning 400.
+
+Next step — inspect the 400 response
+
+Keep that newest 3 request selected.
+
+Click the Response tab at the top, next to Preview.
+
+
+
+That confirms only a generic application 400 page; it doesn't reveal the cause. Since the latest server log also did not report a CSRF failure, we shouldn't keep guessing at the request.
+
+The fastest move now is to compare the successful control request (/toggleread/2) against the failed manipulated request (/toggleread/3) and see exactly what differs besides the ID.
+
+Next step
+
+In Network, click the successful request named 2 with status 200.
+
+Open Headers, scroll down to Request Headers, and take a screenshot showing the request headers—especially: 
+
+Content-Type, Origin, Referer, X-CSRFToken, and X-Requested-With.
+
+I'll compare it directly with the failed 3 request rather than sending anything else.
+
+
+
+I can see the important headers on the successful control request:
+Origin: http://localhost:8083
+
+Referer: http://localhost:8083/book/2
+
+X-CSRFToken: [current token]
+
+X-Requested-With: XMLHttpRequest
+
+But we still need one important value: Content-Type.
+
+Next step
+
+Stay on this successful 2 request and scroll slightly upward in Request Headers until you can see Content-Type.
+
+That's the missing piece.
+The successful control request uses:
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+
+Our fetch() request did not explicitly reproduce that header, so we were not yet performing a clean one-variable test.
+
+Next step — exact control format
+
