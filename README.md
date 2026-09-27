@@ -1129,7 +1129,7 @@ By using my existing authenticated browser session. That will avoid Edge's broke
 
 Using existing authenticated browser session. That will avoid Edge's broken Edit-and-Resend behavior and let us see the actual server response. Let's use a cleaner method that stays inside the authenticated browser session.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/0b93e8a6b0395d17956ceca92dfa686a09bce5c8/Screenshot%202026-09-26%20223821.png)
 
 The red CSP errors are from the earlier Network Console resend attempt; we can ignore them for this test.
 
