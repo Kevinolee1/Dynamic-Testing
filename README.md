@@ -1025,6 +1025,33 @@ It may appear simply as 2 in the Name column.
 
 We will verify the control request before doing the manipulated request.
 
+That is the control request we wanted.
+
+Your Network panel shows:
+
+- Name: 2
+- 
+- Status: 200
+- 
+- Type: xhr
+- 
+- Only one request after clearing the log
+- 
+So Candidate #1 control behavior is captured successfully.
+
+Next — verify the control request
+
+Click the row named 2 in the Network panel.
+
+Then click Headers in the panel that opens.
+
+Under General, we want to see:
+
+Request URL: http://localhost:8083/ajax/toggleread/2
+
+Request Method: POST
+
+Status Code: 200 OK
 
 **Candidate #1 — manipulated request**
 
