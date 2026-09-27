@@ -1147,15 +1147,11 @@ BODY: ...
 
 After that, we'll independently verify the server-side database state before drawing any vulnerability conclusion.
 
-![image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/883a7134efb229f026ece08aa42681fcc8072f97/Screenshot%202026-09-26%20224343.png)
-
 Edge is blocking paste as a self-XSS protection; the yellow message confirms it.
 
 At the > prompt, manually type:
 
 allow pasting
-
-
 
 Edge did not enable pasting; it interpreted allow pasting as JavaScript and returned Unexpected identifier 'pasting'. Nothing was sent to the application
 
@@ -1163,8 +1159,7 @@ I can type the test command manually. At the > prompt in the top Console, manual
 
 fetch('/ajax/toggleread/3',{method:'POST'})
 
-
-
+![image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/883a7134efb229f026ece08aa42681fcc8072f97/Screenshot%202026-09-26%20224343.png)
 
 this time the manipulated request definitely reached the server.
 
