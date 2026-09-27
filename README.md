@@ -994,7 +994,7 @@ Open Lab5-Test-Book-01.
 
 Ctrl + Shift + I.
 
-![Image alt](![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2a3d7b0c76bde798683302a8a48f7c3e5c96878b/Screenshot%202026-09-21%20125540.png))
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2a3d7b0c76bde798683302a8a48f7c3e5c96878b/Screenshot%202026-09-21%20125540.png))
 
 At the top of DevTools, click the + next to Console.
 
