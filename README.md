@@ -1405,7 +1405,7 @@ Go to DevTools → Network. You should see the failed request named 3.
 
 Click 3, then click the Response tab.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/28a5571a431af0cfa00e73d2e63da45e8ea3cb00/Screenshot%202026-09-27%20005000.png)
 
 That response confirms only a generic HTTP 400; it doesn't reveal the reason. More importantly, we have spent enough time guessing at the request differences.
 The next move should be to compare the exact legitimate request with our manipulated request, especially headers and body.
