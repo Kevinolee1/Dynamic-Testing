@@ -1109,7 +1109,7 @@ In PowerShell run: docker logs calibre-web-nextgen --tail 30
 
 I'm checking whether POST /ajax/toggleread/3 actually reached Calibre-Web. If it did, we'll use that evidence and independently check the database. If it didn't, I'll use a different controlled way to resend the authenticated request instead of relying on Edge's Network Console.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/7791711e8089e56e036f454d3820784fcf4795a2/Screenshot%202026-09-26%20222554.png)
 
 This log tells us something important: I do not see a Book 3 read-status event after the manipulated attempt. The visible read-status 
 
