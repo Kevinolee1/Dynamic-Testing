@@ -1494,7 +1494,7 @@ Content-Type, Origin, Referer, X-CSRFToken, and X-Requested-With.
 
 I'll compare it directly with the failed 3 request rather than sending anything else.
 
-
+![mage alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/2f6412422d8df37321d546c613612da44db29b54/Screenshot%202026-09-27%20011204.png)
 
 I can see the important headers on the successful control request:
 Origin: http://localhost:8083
