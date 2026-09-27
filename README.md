@@ -1478,7 +1478,7 @@ Keep that newest 3 request selected.
 
 Click the Response tab at the top, next to Preview.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/65b5244e2ba090f64e7bb2710813ef36e1a2932b/Screenshot%202026-09-27%20010848.png)
 
 That confirms only a generic application 400 page; it doesn't reveal the cause. Since the latest server log also did not report a CSRF failure, we shouldn't keep guessing at the request.
 
