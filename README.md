@@ -1311,7 +1311,7 @@ This will send:
   
 - same operation as the legitimate control request
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/125f8a9535692410ab07f0744f57ede5b2e5bb8f/Screenshot%202026-09-27%20114846.png)
 
 The properly constructed request still returned 400 Bad Request, so now we need to determine why. We still should not classify Candidate #1 as blocked or vulnerable yet.
 
