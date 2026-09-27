@@ -1236,9 +1236,7 @@ to:
 
 Before clicking Send
 
-
-
-Perfect. You're now in the main browser Console, and the bottom Network Console is gone.
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/f3c89eca377a23c454b2ed35d3f694106f02b2e7/Screenshot%202026-09-26%20231639.png)
 
 I need the legitimate CSRF token without manually copying it. Since the page already generated one, first let's see whether it's available in the page DOM.
 
