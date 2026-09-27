@@ -1053,6 +1053,8 @@ Request Method: POST
 
 Status Code: 200 OK
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/6d555c9f4a7382ff04b33f1b1e01917e9315190e/Screenshot%202026-09-26%20213259.png)
+
 **Candidate #1 — manipulated request**
 
 Now I'm going to log back in as lab5-user-a and return to Book 1 (/book/2). Keep DevTools open.
