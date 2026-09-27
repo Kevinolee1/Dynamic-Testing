@@ -1076,3 +1076,19 @@ Right-click the 2 request in the Network list and select Edit and Resend.
 Change only the URL from: http://localhost:8083/ajax/toggleread/2
 
 to: http://localhost:8083/ajax/toggleread/3
+
+
+
+- Method remains POST
+- 
+- Original control was /ajax/toggleread/2
+- 
+- Computed URL now shows /ajax/toggleread/3
+- I have not sent it yet
+- 
+That establishes that the only security-relevant variable we're changing is the book ID: 2 → 3.
+
+Now execute the manipulated request by clicking the blue send button
+
+
+
