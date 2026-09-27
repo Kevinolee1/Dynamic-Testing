@@ -1090,7 +1090,7 @@ That establishes that the only security-relevant variable we're changing is the 
 
 Now execute the manipulated request by clicking the blue send button
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/e888346cb4aa397635d7a6e39ec477acfad4dcfe/Screenshot%202026-09-26%20220817.png)
 
 Your screenshot shows the manipulated URL correctly as:
 http://localhost:8083/ajax/toggleread/3
