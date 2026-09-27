@@ -1064,8 +1064,15 @@ Request Method: POST
 Status Code:    200 OK
 
 This is good evidence for the portfolio because it establishes the legitimate baseline for a book the user is authorized to see.
+
 **Candidate #1 — manipulated request**
 
 Now I'm going to log back in as lab5-user-a and return to Book 1 (/book/2). Keep DevTools open.
 
 I'm going to resend the same authenticated read-status request, changing only the object ID from 2 to 3. That's the core authorization test.
+
+Right-click the 2 request in the Network list and select Edit and Resend.
+
+Change only the URL from: http://localhost:8083/ajax/toggleread/2
+
+to: http://localhost:8083/ajax/toggleread/3
