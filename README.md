@@ -1377,14 +1377,13 @@ Don't click Mark As Read again and don't refresh. We'll immediately use this fre
 
 This should finally give us the clean Candidate #1 authorization test with a fresh CSRF token.
 
-
 So x is now prepared correctly with the fresh token.
 
 Now send the manipulated request
 
 At the > prompt, type: fetch('/ajax/toggleread/3',{method:'POST',body:x})
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/4703d524da2b289d5d9d2218a4898a7e22efad2b/Screenshot%202026-09-27%20122159.png)
 
 Now we need the server's reason.
 
