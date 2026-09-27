@@ -1373,7 +1373,7 @@ fetch('/ajax/toggleread/3',{method:'POST',body:x})
 
 Don't click Mark As Read again and don't refresh. We'll immediately use this fresh token for the controlled /ajax/toggleread/3 request.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/1c315d64ee56159a91ebce6723ca7e88c13798cc/Screenshot%202026-09-27%20004210.png)
 
 This should finally give us the clean Candidate #1 authorization test with a fresh CSRF token.
 
