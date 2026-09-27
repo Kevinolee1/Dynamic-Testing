@@ -1319,7 +1319,7 @@ Run this in PowerShell: docker logs calibre-web-nextgen --tail 10
 
 I specifically want the newest entry corresponding to this request. If it still says CSRF token missing/invalid, I'll fix the request construction. If it shows something different, that tells us which server-side control produced the 400.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/652890e69a832c42ee310c356bdba34b64ebea4c/Screenshot%202026-09-27%20114338.png)
 
 That's actually useful: the request construction is now reaching CSRF validation correctly. We just used an old token.
 Get a fresh token
