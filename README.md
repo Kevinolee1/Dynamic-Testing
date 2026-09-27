@@ -1389,7 +1389,7 @@ Now we need the server's reason.
 
 In PowerShell, run: docker logs calibre-web-nextgen --tail 5
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/512dd4cf3586171349f05fb35bd1ef2ebe29b536/Screenshot%202026-09-27%20004826.png)
 
 Interesting — there is no new CSRF error corresponding to the latest manipulated request in those five lines. Instead, the newest application events are:
 
