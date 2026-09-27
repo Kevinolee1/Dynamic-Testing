@@ -1334,7 +1334,8 @@ Go back to Book 1 → Network.
    
 4. Copy the new csrf_token=... value.
 
-
+![Image alt](That's actually useful: the request construction is now reaching CSRF validation correctly. We just used an old token.
+Get a fresh token)
 
 Let's refresh the CSRF state
 
