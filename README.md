@@ -1494,7 +1494,7 @@ Content-Type, Origin, Referer, X-CSRFToken, and X-Requested-With.
 
 I'll compare it directly with the failed 3 request rather than sending anything else.
 
-![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/5d7528edea6a2b32bfc5e2929984ded24af7ec43/Screenshot%202026-09-27%20011400.png)
+
 
 I can see the important headers on the successful control request:
 Origin: http://localhost:8083
@@ -1511,11 +1511,25 @@ Next step
 
 Stay on this successful 2 request and scroll slightly upward in Request Headers until you can see Content-Type.
 
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/5d7528edea6a2b32bfc5e2929984ded24af7ec43/Screenshot%202026-09-27%20011400.png))
+
 That's the missing piece.
+
 The successful control request uses:
+
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 
 Our fetch() request did not explicitly reproduce that header, so we were not yet performing a clean one-variable test.
 
 Next step — exact control format
+
+In the browser Console, type this exactly: fetch('/ajax/toggleread/3',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8','X-CSRFToken':x.get('csrf_token'),'X-Requested-With':'XMLHttpRequest'},body:x.toString()})
+
+This time we're preserving the successful request format and changing the security-relevant variable:
+
+Book ID 2 → restricted Book ID 3
+
+Press Enter
+
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/a31619cc7ae6997cbcfd82a058d967dd850bcf87/Screenshot%202026-09-27%20012055.png)
 
