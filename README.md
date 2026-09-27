@@ -1030,13 +1030,13 @@ That is the control request we wanted.
 Your Network panel shows:
 
 - Name: 2
-- 
+  
 - Status: 200
-- 
+  
 - Type: xhr
-- 
+  
 - Only one request after clearing the log
-- 
+  
 So Candidate #1 control behavior is captured successfully.
 
 Next — verify the control request
@@ -1055,6 +1055,15 @@ Status Code: 200 OK
 
 ![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/6d555c9f4a7382ff04b33f1b1e01917e9315190e/Screenshot%202026-09-26%20213259.png)
 
+Control request is verified. Your screenshot clearly shows:
+
+Request URL:    http://localhost:8083/ajax/toggleread/2
+
+Request Method: POST
+
+Status Code:    200 OK
+
+This is good evidence for the portfolio because it establishes the legitimate baseline for a book the user is authorized to see.
 **Candidate #1 — manipulated request**
 
 Now I'm going to log back in as lab5-user-a and return to Book 1 (/book/2). Keep DevTools open.
