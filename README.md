@@ -1460,7 +1460,7 @@ Then open Headers → General and send me a screenshot showing:
   
 - Status Code
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/83b9e490f229dee39f894435ec5004fd7d624687/Screenshot%202026-09-27%20125457.png)
 
   the manipulated request is reaching the application:
   
