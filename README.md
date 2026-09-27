@@ -1207,13 +1207,11 @@ Go back to DevTools → Network.
 
 Click the legitimate 2 XHR request again, then click the Payload tab.
 
-Send me a screenshot of what you see there.
-
 We're looking for the CSRF token/form data used by the legitimate: POST /ajax/toggleread/2
 
 Once I have it, I'll send the same authenticated request to /ajax/toggleread/3 while changing only the book ID, which gives us the clean authorization test we originally intended.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/457fa3c85a237dad6676bdf3866438d9379eb628/Screenshot%202026-09-26%20225326.png)
 
 This is exactly what we needed. The legitimate control request contains form data with a csrf_token. That explains why our simple fetch() returned 400.
 
