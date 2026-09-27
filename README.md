@@ -1147,7 +1147,7 @@ BODY: ...
 
 After that, we'll independently verify the server-side database state before drawing any vulnerability conclusion.
 
-
+![image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/883a7134efb229f026ece08aa42681fcc8072f97/Screenshot%202026-09-26%20224343.png)
 
 Edge is blocking paste as a self-XSS protection; the yellow message confirms it.
 
