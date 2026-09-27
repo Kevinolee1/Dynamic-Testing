@@ -1445,7 +1445,7 @@ In PowerShell, run: docker logs calibre-web-nextgen --tail 5
 
 If it reports expired/invalid CSRF, we'll generate a fresh control request and compare the exact CSRF header/body immediately. If there is no CSRF error, we'll know the 400 is coming from another application check and trace that instead.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/fc7576133f4e6a47c1392f6a143904aa76ad1103/Screenshot%202026-09-27%20125018.png)
 
 There is no new CSRF log entry corresponding to the latest POST /ajax/toggleread/3.
 
