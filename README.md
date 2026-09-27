@@ -1260,7 +1260,7 @@ Then click View source next to Form data.
 
 That should give us the exact URL-encoded request body, which we can reuse while changing only the endpoint from Book 2 to Book 3.
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/becb8688386307fc4a27b9fce31bde21c72bb76e/Screenshot%202026-09-26%20232744.png)
 
 This is the exact raw form body I needed. The legitimate request contains only:
 csrf_token=<token>
