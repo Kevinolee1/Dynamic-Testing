@@ -1077,7 +1077,7 @@ Change only the URL from: http://localhost:8083/ajax/toggleread/2
 
 to: http://localhost:8083/ajax/toggleread/3
 
-
+![Image alt](https://github.com/Kevinolee1/Dynamic-Testing/blob/b7d4f005007c6e02426f92f2cff0147811dd1bfd/Screenshot%202026-09-26%20220251.png)
 
 - Method remains POST
 - 
